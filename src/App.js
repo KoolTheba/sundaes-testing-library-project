@@ -1,9 +1,9 @@
 import React from "react";
-import OrderSummary from "./pages/summary/OrderSummary";
+import OrderEntry from "./pages/entry/OrderEntry";
 import "./index.css";
 
 function App() {
-  return <OrderSummary />;
+  return <OrderEntry />;
 }
 
 export default App;
