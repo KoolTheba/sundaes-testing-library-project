@@ -57,6 +57,10 @@ code {
   padding: 2rem;
 }
 
+.option-type__heading {
+  text-transform: capitalize;
+}
+
 .list_wrapper ul {
   list-style: none;
   display: flex;
