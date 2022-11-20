@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+
+// components
 import ScoopOptions from "./ScoopOptions";
 import ToppingOption from "./ToppingOption";
 import AlertBanner from "../common/AlertBanner";
 
+// constants
+import { pricePerItem } from "../../constants";
+
+// utility
+import { formatCurrency } from "../../utilities";
+
+// custom hook
+import { useOrderDetails } from "../../context/OrderDetails";
+
 export default function Options({ optionType }) {
   const [list, setList] = useState(null);
   const [error, setError] = useState(null);
+  const { totals } = useOrderDetails();
 
   useEffect(() => {
     axios
@@ -16,6 +28,7 @@ export default function Options({ optionType }) {
   }, [optionType]);
 
   const ListComponent = optionType === "scoops" ? ScoopOptions : ToppingOption;
+  const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
 
   const optionItems =
     list &&
@@ -26,17 +39,18 @@ export default function Options({ optionType }) {
   return (
     <>
       <div className="options__wrapper">
-        <h2>{optionType}</h2>
+        <h2 className="option-type__heading">{optionType}</h2>
         {error && <AlertBanner message={error} />}
-        {!error && list && (
-          <>
-            <h4>$2.00 each</h4>
-            <h4>{`${optionType} total: $amount`}</h4>
-            <div className="list_wrapper">
-              <ul>{optionItems}</ul>
-            </div>
-          </>
-        )}
+        <>
+          <h2>{title}</h2>
+          <span>{formatCurrency(pricePerItem[optionType])} each</span>
+          <span>
+            {title} total: {formatCurrency(totals[optionType])}
+          </span>
+          <div className="list_wrapper">
+            <ul>{optionItems}</ul>
+          </div>
+        </>
       </div>
     </>
   );
