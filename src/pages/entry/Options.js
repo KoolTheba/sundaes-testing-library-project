@@ -39,11 +39,11 @@ export default function Options({ optionType }) {
   return (
     <>
       <div className="options__wrapper">
-        <h2 className="option-type__heading">{optionType}</h2>
         {error && <AlertBanner message={error} />}
         <>
           <h2>{title}</h2>
           <span>{formatCurrency(pricePerItem[optionType])} each</span>
+          <br />
           <span>
             {title} total: {formatCurrency(totals[optionType])}
           </span>
