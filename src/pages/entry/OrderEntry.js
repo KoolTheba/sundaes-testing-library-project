@@ -16,7 +16,7 @@ export default function OrderEntry() {
         <Options optionType={"scoops"} />
         <Options optionType={"toppings"} />
       </div>
-      <div>
+      <div className="grand_total_wrapper">
         <h2>
           Grand total:
           {grandTotal}

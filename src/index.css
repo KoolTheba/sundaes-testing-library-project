@@ -53,8 +53,9 @@ code {
 }
 
 /* OPTIONS */
-.options__wrapper {
-  padding: 2rem;
+.options__wrapper,
+.grand_total_wrapper {
+  padding: 1.5rem 2rem;
 }
 
 .option-type__heading {
@@ -91,4 +92,13 @@ code {
   color: red;
   height: 30px;
   border: 3px red solid;
+}
+
+.scoops-form,
+.toppings-selection-wrapper {
+  margin-top: 0.8rem;
+}
+
+.scoops-input {
+  margin-left: 0.8rem;
 }

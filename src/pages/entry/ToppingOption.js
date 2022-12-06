@@ -10,7 +10,7 @@ export default function ToppingOption({ name, image }) {
     <li key={name}>
       <h1>{name}</h1>
       <img src={`http://localhost:3030/${image}`} alt={`${name} topping`} />
-      <div>
+      <div className="toppings-selection-wrapper">
         <label htmlFor={name}>
           <input id={name} type="checkbox" onChange={handleChange} />
           {name}
