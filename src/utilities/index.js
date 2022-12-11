@@ -5,3 +5,8 @@ export const formatCurrency = (currency) => {
     minimumFractionDigits: 2,
   }).format(currency);
 };
+
+export const removeZeroElementsFromObject = (item) =>
+  Object.keys(item)
+    .filter((key) => item[key] !== 0)
+    .reduce((newObj, key) => Object.assign(newObj, { [key]: item[key] }), {});
