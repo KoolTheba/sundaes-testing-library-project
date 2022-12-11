@@ -21,14 +21,15 @@ test("Place order button is disabled when no scoops are selected", async () => {
   });
 
   expect(vanillaInput).toBeInTheDocument();
-  await user.clear(vanillaInput);
-  await user.type(vanillaInput, "1");
-  expect(orderButton).toBeEnabled();
-
-  // add ice cream scoop and check button is disabled
+  // check button is disabled
   await user.clear(vanillaInput);
   await user.type(vanillaInput, "0");
   expect(orderButton).toBeDisabled();
+
+  // add scoop and check if button is enabled
+  await user.clear(vanillaInput);
+  await user.type(vanillaInput, "1");
+  expect(orderButton).toBeEnabled();
 });
 
 test("handles error for scoops and toppings routes", async () => {
