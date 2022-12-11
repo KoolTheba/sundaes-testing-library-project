@@ -3,7 +3,6 @@ import { useOrderDetails } from "../../context/OrderDetails";
 
 export default function ScoopOptions({ name, image }) {
   const { updateItemCount, optionCounts } = useOrderDetails();
-  const [isAmountValid, setIsAmountValid] = useState(false);
   const [amount, setAmount] = useState(0);
 
   const scoopsAmountRef = useCallback(
@@ -22,8 +21,6 @@ export default function ScoopOptions({ name, image }) {
       0 <= currentValueFloat &&
       currentValueFloat <= 10 &&
       Math.floor(currentValueFloat) === currentValueFloat;
-
-    setIsAmountValid(valueIsValid);
 
     valueIsValid && setAmount(currentValue);
     const newValue = valueIsValid ? parseInt(currentValue) : 0;
