@@ -1,26 +1,26 @@
 # Sundaes Testing Library app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Cool Sundaes shop tested with [React Testing Library](https://testing-library.com/) and [Mock Service Worker](https://mswjs.io/).
+
+If you want a project for practicing your testing skills, just clone this repo, get rid of all tests files and start testing! 🚀
+
+## Dev mode
+
+- As scoops and toppings options' server, I've used [this Sundae server](https://github.com/bonnie/udemy-TESTING-LIBRARY/tree/main/sundae-server)
+- Clone it locally, and run `npm start` to have available the needed endpoints:
+  - `GET /scoops`
+  - `GET /toppings`
+  - `POST /order`
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+Don't forget to run simultaneously the server!
 
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
