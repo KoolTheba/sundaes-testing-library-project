@@ -1,10 +1,23 @@
+import { useCallback, useState } from "react";
 import { useOrderDetails } from "../../context/OrderDetails";
 
 export default function ScoopOptions({ name, image }) {
-  const { updateItemCount } = useOrderDetails();
+  const { updateItemCount, optionCounts } = useOrderDetails();
+  const [amount, setAmount] = useState(0);
 
-  const handleChange = (e) =>
+  const scoopsAmountRef = useCallback(
+    (node) => {
+      if (node && optionCounts.scoops[node.id]) {
+        setAmount(optionCounts.scoops[node.id]);
+      }
+    },
+    [optionCounts.scoops]
+  );
+
+  const handleChange = (e) => {
+    setAmount(e.target.value);
     updateItemCount(name, Number(e.target.value), "scoops");
+  };
 
   return (
     <li key={name}>
@@ -16,10 +29,11 @@ export default function ScoopOptions({ name, image }) {
           className="scoops-input"
           id={name}
           type="number"
-          defaultValue={0}
+          value={amount}
           min={0}
           max={100}
           onChange={handleChange}
+          ref={scoopsAmountRef}
         />
       </form>
     </li>
