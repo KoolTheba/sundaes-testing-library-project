@@ -13,6 +13,7 @@ import { ORDER_PHASES } from "../../constants/index";
 export default function OrderEntry({ setOrderPhase }) {
   const { totals } = useOrderDetails();
   const grandTotal = formatCurrency(totals.scoops + totals.toppings);
+
   return (
     <>
       <div>
@@ -28,6 +29,7 @@ export default function OrderEntry({ setOrderPhase }) {
       <button
         className="place-order__button"
         onClick={() => setOrderPhase(ORDER_PHASES.IN_REVIEW)}
+        disabled={totals.scoops === 0}
       >
         Place order
       </button>
