@@ -7,7 +7,10 @@ import { formatCurrency } from "../../utilities";
 // custom hook
 import { useOrderDetails } from "../../context/OrderDetails";
 
-export default function OrderEntry() {
+// constants
+import { ORDER_PHASES } from "../../constants/index";
+
+export default function OrderEntry({ setOrderPhase }) {
   const { totals } = useOrderDetails();
   const grandTotal = formatCurrency(totals.scoops + totals.toppings);
   return (
@@ -22,6 +25,12 @@ export default function OrderEntry() {
           {grandTotal}
         </h2>
       </div>
+      <button
+        className="place-order__button"
+        onClick={() => setOrderPhase(ORDER_PHASES.IN_REVIEW)}
+      >
+        Place order
+      </button>
     </>
   );
 }
