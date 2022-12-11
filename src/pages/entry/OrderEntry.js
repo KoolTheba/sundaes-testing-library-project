@@ -25,14 +25,16 @@ export default function OrderEntry({ setOrderPhase }) {
           Grand total:
           {grandTotal}
         </h2>
+        <button
+          className={
+            totals.scoops === 0 ? "disable__button" : "place-order__button"
+          }
+          onClick={() => setOrderPhase(ORDER_PHASES.IN_REVIEW)}
+          disabled={totals.scoops === 0}
+        >
+          Place order
+        </button>
       </div>
-      <button
-        className="place-order__button"
-        onClick={() => setOrderPhase(ORDER_PHASES.IN_REVIEW)}
-        disabled={totals.scoops === 0}
-      >
-        Place order
-      </button>
     </>
   );
 }

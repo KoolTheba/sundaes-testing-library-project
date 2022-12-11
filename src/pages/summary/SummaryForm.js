@@ -15,18 +15,24 @@ const SummaryForm = ({ setOrderPhase }) => {
     <>
       <div className="form__wrapper">
         <form>
-          <input
-            onChange={(e) => setTcChecked(e.target.checked)}
-            type="checkbox"
-            checked={tcChecked}
-            aria-checked={tcChecked}
-            id="terms-and-conditions-checkbox"
-          />
-          <label className="tyc__label" htmlFor="terms-and-conditions-checkbox">
-            I agree on terms and conditions
-          </label>
+          <div className="checkbox__wrapper">
+            <input
+              onChange={(e) => setTcChecked(e.target.checked)}
+              type="checkbox"
+              checked={tcChecked}
+              aria-checked={tcChecked}
+              id="terms-and-conditions-checkbox"
+            />
+            <label
+              className="tyc__label"
+              htmlFor="terms-and-conditions-checkbox"
+            >
+              I agree on terms and conditions
+            </label>
+          </div>
+
           <button
-            className="confirm__btn"
+            className={!tcChecked ? "disabled__btn" : "confirm__btn"}
             type="submit"
             disabled={!tcChecked}
             onClick={handleSubmit}
@@ -39,7 +45,11 @@ const SummaryForm = ({ setOrderPhase }) => {
         </form>
       </div>
       <div>
-        <button onClick={() => setOrderPhase(ORDER_PHASES.IN_PROGRESS)}>
+        <span className="change-cta">Any change?</span>
+        <button
+          onClick={() => setOrderPhase(ORDER_PHASES.IN_PROGRESS)}
+          className="back__btn"
+        >
           Back to your order
         </button>
       </div>

@@ -51,8 +51,8 @@ test("Order phases for happy path", async () => {
   expect(toppingsSummaryHeading).toHaveTextContent("1.50");
 
   // option items
-  expect(screen.getByText("1 Vanilla")).toBeInTheDocument();
-  expect(screen.getByText("2 Chocolate")).toBeInTheDocument();
+  expect(screen.getByText("1 scoop(s) of Vanilla")).toBeInTheDocument();
+  expect(screen.getByText("2 scoop(s) of Chocolate")).toBeInTheDocument();
   expect(screen.getByText("Cherries")).toBeInTheDocument();
 
   // accept terms and conditions and click button to confirm order

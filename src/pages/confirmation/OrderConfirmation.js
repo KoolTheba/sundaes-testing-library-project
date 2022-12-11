@@ -40,7 +40,9 @@ export default function OrderConfirmation({ setOrderPhase }) {
     <>
       <h1>Thank you!</h1>
       <h2>Your order confirmation is {orderNumber}</h2>
-      <button onClick={handleCreateNewOrder}>Create new order</button>
+      <button className="new-order__btn" onClick={handleCreateNewOrder}>
+        Create new order
+      </button>
     </>
   );
 }

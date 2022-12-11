@@ -25,7 +25,7 @@ test("Place order button is disabled when no scoops are selected", async () => {
   await user.type(vanillaInput, "1");
   expect(orderButton).toBeEnabled();
 
-  // add ice cream scoop ancd check button is disabled
+  // add ice cream scoop and check button is disabled
   await user.clear(vanillaInput);
   await user.type(vanillaInput, "0");
   expect(orderButton).toBeDisabled();

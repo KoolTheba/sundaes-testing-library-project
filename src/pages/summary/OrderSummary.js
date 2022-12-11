@@ -9,7 +9,7 @@ const OrderSummary = ({ setOrderPhase }) => {
   const cleanedScoopsObject = removeZeroElementsFromObject(optionCounts.scoops);
   const scoopList = Object.entries(cleanedScoopsObject).map(([key, value]) => (
     <li key={key}>
-      {value} {key}
+      {value} scoop(s) of {key}
     </li>
   ));
 

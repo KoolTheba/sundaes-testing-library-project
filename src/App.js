@@ -11,15 +11,17 @@ function App() {
   return (
     <>
       <OrderDetailsProvider>
-        {orderPhase === ORDER_PHASES.IN_PROGRESS && (
-          <OrderEntry setOrderPhase={setOrderPhase} />
-        )}
-        {orderPhase === ORDER_PHASES.IN_REVIEW && (
-          <OrderSummary setOrderPhase={setOrderPhase} />
-        )}
-        {orderPhase === ORDER_PHASES.COMPLETE && (
-          <OrderConfirmation setOrderPhase={setOrderPhase} />
-        )}
+        <div className="main__wrapper">
+          {orderPhase === ORDER_PHASES.IN_PROGRESS && (
+            <OrderEntry setOrderPhase={setOrderPhase} />
+          )}
+          {orderPhase === ORDER_PHASES.IN_REVIEW && (
+            <OrderSummary setOrderPhase={setOrderPhase} />
+          )}
+          {orderPhase === ORDER_PHASES.COMPLETE && (
+            <OrderConfirmation setOrderPhase={setOrderPhase} />
+          )}
+        </div>
       </OrderDetailsProvider>
     </>
   );
