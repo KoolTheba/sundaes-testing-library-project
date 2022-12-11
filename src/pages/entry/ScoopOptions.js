@@ -25,7 +25,7 @@ export default function ScoopOptions({ name, image }) {
 
     setIsAmountValid(valueIsValid);
 
-    isAmountValid && setAmount(currentValue);
+    valueIsValid && setAmount(currentValue);
     const newValue = valueIsValid ? parseInt(currentValue) : 0;
     updateItemCount(name, newValue, "scoops");
   };
